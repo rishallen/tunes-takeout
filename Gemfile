@@ -21,6 +21,13 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'httparty'
+
+gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'rspotify'
+
+gem 'yelp', require: 'yelp'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -29,17 +36,33 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+#testing
+group :test do
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'simplecov', require: false
+end
+
+  gem 'pretty_time', '~> 0.2.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Better Errors for debugging
+  gem 'better_errors'
+  gem 'binding_of_caller'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rails-erd'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
