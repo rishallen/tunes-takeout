@@ -3,10 +3,12 @@ ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use postgresql as the database for Active Record
+# # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem('sass-rails', '~> 5.0')
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -27,7 +29,9 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'rspotify'
 
-gem 'yelp', require: 'yelp'
+gem('yelp', {require: 'yelp'})
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,9 +42,10 @@ gem 'yelp', require: 'yelp'
 # gem 'capistrano-rails', group: :development
 #testing
 group :test do
-  gem 'minitest'
-  gem 'minitest-reporters'
+  gem 'minitest-vcr' # enables vcr to talk to minitest
+  gem 'minitest-reporters' # gives a nice test output
   gem 'simplecov', require: false
+  gem 'webmock' # mocking library around http transactions
 end
 
   gem 'pretty_time', '~> 0.2.2'
