@@ -1,0 +1,12 @@
+<h1>Welcome To Tunes and Takeout</h1>
+<p>20 Top Favorites </p>
+
+<% @final_results.each do |i| %>
+<div>
+  Food: <%= Food.find(i["food_id"]).name  %>
+</di>
+<% end %>
+<% @top_results.each do |i| %>
+Name: <%= link_to i.name %> <br>
+Type: <%= i.type %>
+<% end %>

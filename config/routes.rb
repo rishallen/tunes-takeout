@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  root('suggestions#index')
+  root 'welcome#index'
 
-  resources(:suggestions, {only: [:new, :create ]})
-
+  resources :suggestions, only: [:index, :show]
+  resources :sessions, only: [:create]
+  resources :users
+  # post "suggestions" => "suggestions#show", as: :show
+  # get "/signup" => 'users#new', as: 'signup'
+  delete "/logout" => "sessions#destroy"
+  get "/auth/:provider/callback" => "sessions#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

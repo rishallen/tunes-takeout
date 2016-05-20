@@ -31,9 +31,14 @@ gem 'rspotify'
 
 gem('yelp', {require: 'yelp'})
 
-
+gem "omniauth"
+gem "omniauth-spotify"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+#
+gem 'omniauth-oauth2', '~> 1.3.1'
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -54,6 +59,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do

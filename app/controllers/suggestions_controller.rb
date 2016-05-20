@@ -1,15 +1,18 @@
+require 'tunestakeout'
+
 class SuggestionsController < ApplicationController
   def index
-
+    @param_results = TunesTakeout.search(params[:search])
   end
 
   def favorites
+    # @user = Suggestion.find(params[:number])
   end
 
-  def new
-    @suggestion = Suggestion.new
-    render :new  
-  end
+  # def show
+  # individual item
+  #   @param_results = TunesTakeout.search(params[:search])
+  # end
 
   def unfavorite
   end
