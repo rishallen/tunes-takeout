@@ -3,7 +3,6 @@ require 'yelp'
 
 class Food
   attr_reader :name, :url, :image_url, :phone, :address
-  FOOD_OPTIONS = []
 
   def initialize(data)
     raise
@@ -15,6 +14,6 @@ class Food
   end
 
   def self.find(food_id)
-    Yelp.client.business(food_id).business
+    Yelp.client.business(URI.escape(food_id)).business
   end
 end

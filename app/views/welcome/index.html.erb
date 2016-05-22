@@ -1,12 +1,15 @@
 <h1>Welcome To Tunes and Takeout</h1>
 <p>20 Top Favorites </p>
 
-<% @final_results.each do |i| %>
-<div>
-  Food: <%= Food.find(i["food_id"]).name  %>
-</di>
-<% end %>
-<% @top_results.each do |i| %>
-Name: <%= link_to i.name %> <br>
-Type: <%= i.type %>
+<% @list = @final_results.zip(@top_results.to_a) %>
+<% @list.map do |food, a| %>
+  <div>
+    Food: <%= link_to Food.find(food["suggestion"]["food_id"]).name, Food.find(food["suggestion"]["food_id"]).url  %>
+  </div>
+  <div>
+    Music Name:  <%=link_to a.name, a.uri %>
+  </div>
+  <div>
+    Type: <%= a.type %><br><br>
+  </div>
 <% end %>

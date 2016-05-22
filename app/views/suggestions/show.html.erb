@@ -1,15 +1,2 @@
-<!-- Name: <%= #link_to Music.charles_api_hash(i["music_id"]).name %> <br> -->
-def self.top_favorites_by
-  # hard coded limit of 20, possible refractor would be to make this an argument.
-  data = HTTParty.get(BASE_URL + "v1/suggestions/top?limit=20").parsed_response["suggestions"]
-end
-
-def self.final_results(suggestions_hash)
-  @top_results = []
-  suggestions_hash.each do |id|
-    data = HTTParty.get(BASE_URL + "v1/suggestions/#{id}").parsed_response["suggestion"]
-  @top_results << data
-  end
-  @top_results
-end
-hello
+<table>
+	<%= @param_results%>

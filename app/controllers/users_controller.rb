@@ -1,3 +1,5 @@
+require_relative '../../lib/tunestakeoutwrapper.rb'
+
 class UsersController < ApplicationController
 
   def new

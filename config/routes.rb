@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resources :suggestions, only: [:index, :show]
   resources :sessions, only: [:create]
   resources :users
-  # post "suggestions" => "suggestions#show", as: :show
   # get "/signup" => 'users#new', as: 'signup'
+
+  # retrieve search term from user
+  post '/search' => 'suggestions#search'
+  # user signin
+  get '/signin' => 'users#new', as: 'login'
   delete "/logout" => "sessions#destroy"
   get "/auth/:provider/callback" => "sessions#create"
   # The priority is based upon order of creation: first created -> highest priority.

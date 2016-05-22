@@ -1,0 +1,32 @@
+<%= link_to "Search", suggestions_path %>
+
+<% if @top_results %>
+<% @list = @final_results.zip(@top_results.to_a) %>
+	<% @list.map do |food, a| %>
+	  <div>
+	    Food: <%= link_to Food.find(food["suggestion"]["food_id"]).name, Food.find(food["suggestion"]["food_id"]).url  %>
+	  </div>
+	  <div>
+	    Music Name:  <%=link_to a.name, a.uri %>
+	  </div>
+	  <div>
+	    Type: <%= a.type %><br><br>
+	  </div>
+	<% end %>
+<% end %>
+
+
+<p>20 Top Favorites </p>
+
+<% @list = @final_results.zip(@top_results.to_a) %>
+<% @list.map do |food, a| %>
+  <div>
+    Food: <%= link_to Food.find(food["suggestion"]["food_id"]).name, Food.find(food["suggestion"]["food_id"]).url  %>
+  </div>
+  <div>
+    Music Name:  <%=link_to a.name, a.uri %>
+  </div>
+  <div>
+    Type: <%= a.type %><br><br>
+  </div>
+<% end %>
