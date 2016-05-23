@@ -1,6 +1,6 @@
 <%= link_to "Search", suggestions_path %>
 
-<% if @top_results %>
+<%= if @top_results %>
 <% @list = @final_results.zip(@top_results.to_a) %>
 	<% @list.map do |food, a| %>
 	  <div>
@@ -12,6 +12,9 @@
 	  <div>
 	    Type: <%= a.type %><br><br>
 	  </div>
+		<div>
+			<%=link_to "Favorite This", favorites_path(food["suggestion"]["id"]), method: :post %>
+		</div>
 	<% end %>
 <% end %>
 
@@ -29,4 +32,8 @@
   <div>
     Type: <%= a.type %><br><br>
   </div>
+	<div>
+		<%=	a.images %>
+	</div>
+
 <% end %>

@@ -4,8 +4,19 @@ class SuggestionsController < ApplicationController
   def index
   end
 
-  def favorites
-    @user = Suggestion.find(params[:number])
+  def add_favorite
+    @suggestion = params["suggestion"]
+    @user = current_user.uid
+    favorites = TunesTakeout.add_a_favorite(@user, @suggestion)
+    redirect_to root_path
+    #to do -- pass suggestion and user id to tunes-takeout-api and call the post url
+  end
+
+  def favorite
+    @suggestion = params["suggestion"]
+    @user = current_user.uid
+    response = TunesTakeoutWrapper.favorite(@user, @suggestion)
+    redirect_to root_path
   end
 
   def search

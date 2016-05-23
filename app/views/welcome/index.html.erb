@@ -1,6 +1,7 @@
 <h1>Welcome To Tunes and Takeout</h1>
-<p>20 Top Favorites </p>
 
+<p>20 Top Favorites </p>
+<%= link_to "Suggestions Search", suggestions_path %>
 <% @list = @final_results.zip(@top_results.to_a) %>
 <% @list.map do |food, a| %>
   <div>
@@ -12,4 +13,5 @@
   <div>
     Type: <%= a.type %><br><br>
   </div>
+
 <% end %>

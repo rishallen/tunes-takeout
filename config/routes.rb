@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  post '/favorite' => 'suggestions#add_favorite', as: 'favorite'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  delete '/favorite' => 'suggestions#destroy_favorite', as: 'destroy_favorite'
+  get '/favorites' => 'suggestions#favorites', as: 'favorites'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

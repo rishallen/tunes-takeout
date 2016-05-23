@@ -12,7 +12,7 @@
     <nav class="navbar navbar-default">
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Favorites", root_path if current_user %></li>
+        <li><%= link_to "Favorites", favorites_path if current_user %></li>
         <li><%= link_to "Log In", "/auth/spotify" unless current_user %></li>
         <li><%= link_to "Log Out", logout_path, method: :delete if current_user%></li>
       </ul>

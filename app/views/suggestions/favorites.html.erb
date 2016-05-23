@@ -1,0 +1,17 @@
+<h1>Your Favorites</h1>
+
+<% if @suggestion %>
+<%= @suggestion.each do |pair| %>
+			<ul>
+				<li>Name: <%= link_to (pair["suggestion"]["food_id"]).name, (pair["suggestion"]["food_id"]).url %></li>
+				<li>Phone: <%= (pair["suggestion"]["food_id"]).phone %></li>
+				<li>Addess: <%= (pair["suggestion"]["food_id"]).address %></li>
+			</ul>
+		</td>
+		<td>
+			<%= link_to "Spotify Link", music.url %>
+			<iframe src="https://embed.spotify.com/?uri=spotify:user:#{paired_tune.uri}" width="300" height="250" frameborder="0" allowtransparency="true"></iframe>
+		</td>
+	</tr>
+  <% end %>
+  <% end %>

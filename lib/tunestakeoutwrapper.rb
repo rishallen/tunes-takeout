@@ -37,4 +37,17 @@ module TunesTakeout
     end
     @top_results
   end
+
+  def self.add_a_favorite(user, suggestion)
+    # call API and say user favorited suggestion
+    response = HTTParty.post(BASE_URL + "v1/users/#{user}/favorites",
+      body: {
+        "suggestion": suggestion
+        }.to_json)
+  end
+
+  def self.favorites(user_id)
+    favorites = HTTParty.get(BASE_URL + "/v1/users/#{user_id}/favorites").parsed_response
+  end
+
 end
